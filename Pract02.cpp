@@ -71,6 +71,21 @@ class Student
         }
         return *this; 
     }
+    
+    bool foundGrades(const std::vector<double>& grades, std::vector<double>& foundgrades)
+    {
+        bool GoodGrades = false;
+        for(auto i = grades.begin(); i!= grades.end(); ++i)
+        {
+            if(*i == 4 || *i == 5)
+            {
+                foundgrades.push_back(*i);
+                GoodGrades = true;
+            }
+        }
+        return GoodGrades;
+        
+    }
 
     size_t len()
     {
@@ -89,11 +104,10 @@ class Student
     {
         return m_GPA;
     }
-    void print()
+
+    const std::vector<double> getGrades() const
     {
-        for(auto i = m_grades.begin();i!= m_grades.end();++i)
-        std::cout<<*i<<", ";
-        std::cout<<std::endl;
+        return m_grades;
     }
     
     private:
@@ -104,11 +118,19 @@ class Student
     std::vector <double> m_grades;
 };
 
+void print(const std::vector<double>& vect)
+    {
+        for(auto i = vect.begin();i!= vect.end();++i)
+            std::cout<<*i<<" ";
+        std::cout<<std::endl;
+    }
+
 int main()
 {
     std::vector<double> gr{5,6,5,6,5.5};
     std::vector<double> gr2{1,5,3,3};
-    std::vector<double> gr3{2,2,2,2};
+    std::vector<double> gr3{2,2,4,2};
+    std::vector<double> foundgrades;
     //move constructor
     Student s1("Ivan", 18, 5.5, gr);
     Student s2(std::move(s1));
@@ -117,11 +139,13 @@ int main()
     if(s1.c_str()== nullptr)
     {
         std::cout<<"nullptr "<<" "<<s1.getAge()<<" "<<s1.getGPA()<<" ";
-        s1.print();
     }
 
     std::cout<<"NAME: "<< s2.c_str()<<" AGE: "<<s2.getAge()<<" GPA: "<<s2.getGPA()<<" GRADES: ";
-    s2.print();
+    print(s2.getGrades());
+    std::cout<<"true or false: "<<s2.foundGrades(s2.getGrades(), foundgrades)<<" other grades: ";
+    print(foundgrades);
+    foundgrades.clear();
 
     //move assignment operator
     Student s3("Gogo", 14, 3, gr2);
@@ -129,27 +153,44 @@ int main()
 
 
     std::cout<<"NAME: "<<s3.c_str()<<" AGE: "<<s3.getAge()<<" GPA: "<<s3.getGPA()<<" GRADES: ";
-    s3.print();
+    print(s3.getGrades());
+    std::cout<<"true or false: "<<s3.foundGrades(s3.getGrades(), foundgrades)<<" other grades: ";
+    print(foundgrades);
+    foundgrades.clear();
     
     s3 = std::move(s4);
     std::cout<<"NAME: "<<s3.c_str()<<" AGE: "<<s3.getAge()<<" GPA: "<<s3.getGPA()<<" GRADES: ";
-    s3.print();
+    print(s3.getGrades());
+    std::cout<<"true or false: "<<s3.foundGrades(s3.getGrades(), foundgrades)<<" other grades: ";
+    print(foundgrades);
+    foundgrades.clear();
+
     if(s4.c_str() == nullptr)
     {
         std::cout<<"nullptr "<<" "<<s4.getAge()<<" "<<s4.getGPA()<<" ";
-        s4.print();
     }
+
+
     //copy constructor
     Student s5(s2);
 
 
     std::cout<<"NAME: "<<s5.c_str()<<" AGE: "<<s5.getAge()<<" GPA: "<<s5.getGPA()<<" GRADES: ";
-    s5.print();
+    print(s5.getGrades());
+    std::cout<<"true or false: "<<s5.foundGrades(s5.getGrades(), foundgrades)<<" other grades: ";
+    print(foundgrades);
+    foundgrades.clear();
+
+
     //copy assignment constructor
     Student s6("Pepi", 3, 2, gr);
     
 
     s6 = s5;
     std::cout<<"NAME: "<<s6.c_str()<<" AGE: "<<s6.getAge()<<" GPA: "<<s6.getGPA()<<" GRADES: ";
-    s6.print();
+    print(s6.getGrades());
+    std::cout<<"true or false: "<<s6.foundGrades(s6.getGrades(), foundgrades)<<" other grades: ";
+    print(foundgrades);
+    foundgrades.clear();
+    
 }
