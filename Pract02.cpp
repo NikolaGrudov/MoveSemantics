@@ -75,11 +75,11 @@ class Student
     bool foundGrades(const std::vector<double>& grades, std::vector<double>& foundgrades)
     {
         bool GoodGrades = false;
-        for(auto i = grades.begin(); i!= grades.end(); ++i)
+        for(auto i : grades)
         {
-            if(*i == 4 || *i == 5)
+            if(i == 4 || i == 5)
             {
-                foundgrades.push_back(*i);
+                foundgrades.push_back(i);
                 GoodGrades = true;
             }
         }
@@ -120,8 +120,8 @@ class Student
 
 void print(const std::vector<double>& vect)
     {
-        for(auto i = vect.begin();i!= vect.end();++i)
-            std::cout<<*i<<" ";
+        for(auto i : vect)
+            std::cout<<i<<" ";
         std::cout<<std::endl;
     }
 
