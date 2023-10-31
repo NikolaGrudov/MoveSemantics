@@ -7,7 +7,7 @@ class Student
 {
     public:
     //constructor
-    Student(const char* name, unsigned int age, double GPA, std::vector<double>& grades): name_len(strlen(name)), m_age(age), m_GPA(GPA)
+    Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA)
     {
         m_name = new char[name_len+1];
         strcpy(m_name, name);
