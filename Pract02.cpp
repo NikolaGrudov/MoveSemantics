@@ -105,7 +105,7 @@ class Student
         return m_GPA;
     }
 
-    const std::vector<double> getGrades() const
+    const std::vector<double>& getGrades() const
     {
         return m_grades;
     }
