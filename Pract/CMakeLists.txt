@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.22)
+project("Pract02")
+include_directories("Include")
+add_executable(pract02 "Pract02.cpp")
+add_executable(test "BoostTest.cpp")
