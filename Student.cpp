@@ -3,7 +3,6 @@
 #include <cstring>
 #include <vector>
 #include "Student.h"
-#include "Student.cpp"
 
 
     //constructor
