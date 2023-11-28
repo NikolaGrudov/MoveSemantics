@@ -2,9 +2,7 @@
 #include <string>
 #include <cstring>
 #include <vector>
-#include "Boost_tests/foundGradesTest.cpp"
 #include "Student.h"
-#include "Student.cpp"
 int main()
 {
     std::vector<double> gr{5,6,5,6,5.5};

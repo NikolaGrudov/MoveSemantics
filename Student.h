@@ -4,7 +4,7 @@
 #include <iostream>
 class Student
 {
-    public:
+public:
     Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades);    
     Student(const Student& other);
     Student(Student&& other) noexcept;
