@@ -17,3 +17,12 @@ BOOST_AUTO_TEST_CASE(foundGrades)
 
 
 BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(averageGrades)
+BOOST_AUTO_TEST_CASE(averageGrades)
+{
+    const std::vector<double> gr {5,5,4,4};
+    Student s1("Ivan", 18, 5.5, gr);
+    BOOST_CHECK(s1.averageGrades(gr) == 4.5);
+}
+BOOST_AUTO_TEST_SUITE_END()
