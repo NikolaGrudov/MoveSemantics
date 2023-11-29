@@ -71,7 +71,7 @@
         return *this; 
     }
     
-    bool foundGrades(const std::vector<double>& grades, std::vector<double>& foundgrades)
+    bool Student::foundGrades(const std::vector<double>& grades, std::vector<double>& foundgrades)
     {
         bool GoodGrades = false;
         for(auto i : grades)
