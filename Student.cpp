@@ -86,6 +86,14 @@
         
     }
 
+    double Student::averageGrades(const std::vector<double>& grades)
+    {
+        double sumOfGrades = 0;
+        for(auto i : grades)
+            sumOfGrades += i;
+        return sumOfGrades/grades.size();
+    }
+
     size_t Student::len()
     {
         return name_len;
