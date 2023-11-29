@@ -12,7 +12,7 @@ BOOST_AUTO_TEST_CASE(foundGrades)
 
     
     std::vector<double> fgrades{};
-    BOOST_CHECK(s1.foundGrades(gr, fgrades) == true)
+    BOOST_CHECK(s1.foundGrades(gr, fgrades) == true);
 }
 
 
