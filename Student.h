@@ -12,6 +12,7 @@ public:
     Student& operator=(const Student& other);
     Student& operator=(Student&& other) noexcept;
     bool foundGrades(const std::vector<double>& grades, std::vector<double>& foundgrades);
+    double averageGrades(const std::vector<double>& grades);
     size_t len();
     const char* c_str() const;
     const unsigned int getAge() const;
