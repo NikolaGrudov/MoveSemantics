@@ -25,7 +25,24 @@ public:
     unsigned int m_age;
     double m_GPA;
     std::vector <double> m_grades;
+    std::vector <Subject> m_subjects;
 
+};
+
+class Subject
+{
+public:
+    Subject(const char* nameOfSubject, const char* nameOfTeacher);
+    size_t getSubLen();
+    size_t getTeaLen();
+    const char* getSubName() const;
+    const char* getTeaName() const;
+
+private:
+    char* m_nameOfSubject;
+    char* m_nameOfTeacher;
+    size_t subject_len;
+    size_t teacher_len;
 };
 
 void print(const std::vector<double>& vect);
