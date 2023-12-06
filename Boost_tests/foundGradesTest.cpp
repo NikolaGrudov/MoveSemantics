@@ -8,8 +8,8 @@ BOOST_AUTO_TEST_SUITE(foundGrades)
 BOOST_AUTO_TEST_CASE(foundGrades)
 {
     std::vector<double> gr {5,2,2, 3.3};
-    Student s1("Ivan", 18, 5.5, gr);
-
+    std::vector <Subject*> subjects1;
+    Student s1("Ivan", 18, 5.5, gr, subjects1);
     
     std::vector<double> fgrades{};
     BOOST_CHECK(s1.foundGrades(gr, fgrades) == true);
