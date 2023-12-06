@@ -4,6 +4,7 @@
 #include <vector>
 #include "Student.h"
 
+    //subject constructor
     Subject::Subject(const char* nameOfSubject, const char* nameOfTeacher): subject_len(strlen(nameOfSubject)), teacher_len(strlen(nameOfTeacher))
     {
         m_nameOfSubject = new char[subject_len+1];
@@ -30,26 +31,26 @@
     }
 
     //constructor
-    Student::Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA)
-    {
+    Student::Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades, const std::vector<Subject*> &subjects): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA), m_subjects(subjects)    {
         m_name = new char[name_len+1];
         strcpy(m_name, name);
     }
     
     //copy constructor
-    Student::Student(const Student& other): m_grades(other.m_grades), name_len(other.name_len), m_age(other.m_age), m_GPA(other.m_GPA)
+    Student::Student(const Student& other): m_grades(other.m_grades), name_len(other.name_len), m_age(other.m_age), m_GPA(other.m_GPA), m_subjects(other.m_subjects)
     {   
         m_name = new char[name_len+1];
         strcpy(m_name, other.m_name);
     }
     //move constructor
-    Student::Student (Student&& other) noexcept : name_len(other.name_len), m_name(other.m_name), m_age(other.m_age), m_GPA(other.m_GPA), m_grades(other.m_grades)
+    Student::Student (Student&& other) noexcept : name_len(other.name_len), m_name(other.m_name), m_age(other.m_age), m_GPA(other.m_GPA), m_grades(other.m_grades), m_subjects(other.m_subjects)
     {
         other.m_grades ={0};  
         other.name_len = 0;
         other.m_name = nullptr;
         other.m_age = 0;
         other.m_GPA = 0;
+        other.m_subjects = {0};
     }
     //destructor
     Student::~Student()
@@ -70,6 +71,7 @@
             strcpy(m_name, other.m_name);
             m_age= other.m_age;
             m_GPA= other.m_GPA;
+            
         }
         return *this;   
     }
