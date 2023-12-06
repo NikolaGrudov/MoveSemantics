@@ -5,6 +5,17 @@
 #include "Student.h"
 int main()
 {
+
+    Subject *maths = new Subject("Maths", "Gogev");
+    Subject *it = new Subject("IT", "Petrov");
+    Subject *sports= new Subject("Sports", "Balabanova");
+    std::vector <Subject*> subjects;
+
+    subjects.push_back(maths);
+    subjects.push_back(it);
+    subjects.push_back(sports);
+
+    
     std::vector<double> gr{5,6,5,6,5.5};
     std::vector<double> gr2{1,5,3,3};
     std::vector<double> gr3{2,2,4,2};
@@ -70,5 +81,6 @@ int main()
     std::cout<<"true or false: "<<s6.foundGrades(s6.getGrades(), foundgrades)<<" other grades: ";
     print(foundgrades);
     foundgrades.clear();
+    subjects.clear();
     
 }
