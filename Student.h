@@ -2,10 +2,27 @@
 #define __Student_h__
 #include <vector>
 #include <iostream>
+
+class Subject
+{
+public:
+    Subject(const char* nameOfSubject, const char* nameOfTeacher);
+    size_t getSubLen();
+    size_t getTeaLen();
+    const char* getSubName() const;
+    const char* getTeaName() const;
+
+private:
+    char* m_nameOfSubject;
+    char* m_nameOfTeacher;
+    size_t subject_len;
+    size_t teacher_len;
+};
+
 class Student
 {
 public:
-    Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades);    
+    Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades, const std::vector<Subject*> &subjects);    
     Student(const Student& other);
     Student(Student&& other) noexcept;
     ~Student();
@@ -29,21 +46,6 @@ public:
 
 };
 
-class Subject
-{
-public:
-    Subject(const char* nameOfSubject, const char* nameOfTeacher);
-    size_t getSubLen();
-    size_t getTeaLen();
-    const char* getSubName() const;
-    const char* getTeaName() const;
-
-private:
-    char* m_nameOfSubject;
-    char* m_nameOfTeacher;
-    size_t subject_len;
-    size_t teacher_len;
-};
 
 void print(const std::vector<double>& vect);
 #endif
