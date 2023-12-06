@@ -3,6 +3,7 @@
 #include <cstring>
 #include <vector>
 #include "Student.h"
+#include "Subject.h"
 int main()
 {
 
