@@ -44,5 +44,9 @@ int main()
     subjects1.clear();
     subjects2.clear();
     foundgrades.clear();
+
+    delete maths;
+    delete it;
+    delete sports;
     
 }
