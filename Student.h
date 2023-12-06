@@ -25,7 +25,7 @@ public:
     unsigned int m_age;
     double m_GPA;
     std::vector <double> m_grades;
-    std::vector <Subject> m_subjects;
+    std::vector <Subject*> m_subjects;
 
 };
 
