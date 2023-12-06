@@ -3,32 +3,7 @@
 #include <cstring>
 #include <vector>
 #include "Student.h"
-
-    //subject constructor
-    Subject::Subject(const char* nameOfSubject, const char* nameOfTeacher): subject_len(strlen(nameOfSubject)), teacher_len(strlen(nameOfTeacher))
-    {
-        m_nameOfSubject = new char[subject_len+1];
-        strcpy(m_nameOfSubject, nameOfSubject);
-        m_nameOfTeacher = new char[teacher_len+1];
-        strcpy(m_nameOfTeacher, nameOfTeacher);
-    }
-
-    size_t Subject::getSubLen()
-    {
-        return subject_len;
-    }
-    size_t Subject::getTeaLen()
-    {
-        return teacher_len;
-    }
-    const char* Subject::getSubName() const
-    {
-        return m_nameOfSubject;
-    }
-    const char* Subject::getTeaName() const
-    {
-        return m_nameOfTeacher;
-    }
+#include "Subject.h"
 
     //constructor
     Student::Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades, const std::vector<Subject*> &subjects): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA), m_subjects(subjects)    {
@@ -71,7 +46,7 @@
             strcpy(m_name, other.m_name);
             m_age= other.m_age;
             m_GPA= other.m_GPA;
-            
+
         }
         return *this;   
     }
