@@ -28,6 +28,7 @@ int main()
     //move constructor
     Student s1("Ivan", 18, 5.5, gr, subjects1);
     Student s2(std::move(s1));
+    printStudent(s2, gr, subjects1);
 
     //move assignment operator
     Student s3("Gogo", 14, 3, gr2, subjects2);
