@@ -118,9 +118,18 @@
         return m_grades;
     }
 
-    void print(const std::vector<double>& vect)
+    template <class T>
+    void print(const std::vector<T>& vect)
     {
         for(auto i : vect)
             std::cout<<i<<" ";
+    }
+
+    void printStudent(const Student& student, const std::vector<double>& grades, const std::vector<Subject*> &subjects)
+    {
+        std::cout<<"Name: "<<student.c_str()<<" Age: "<<student.getAge()<<" Grades: ";
+        print(grades);
+        std::cout<<" Subjects: ";
+        print(subjects);
         std::cout<<std::endl;
     }
