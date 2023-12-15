@@ -34,5 +34,7 @@ public:
 };
 
 
-void print(const std::vector<double>& vect);
+template <class T>
+void print(const std::vector<T>& vect);
+void printStudent(const Student& student, const std::vector<double> grades, const std::vector<Subject*> &subjects);
 #endif
