@@ -22,6 +22,10 @@ public:
     const unsigned int getAge() const;
     const double getGPA() const;
     const std::vector<double>& getGrades() const;
+    const std::vector<Subject*> getSubjects() const;
+    void printStudent(const Student& student);
+
+    
 
     private:
     char* m_name;
@@ -32,9 +36,7 @@ public:
     std::vector <Subject*> m_subjects;
 
 };
+    template <class T>
+    void print(const std::vector<T>& vect);
 
-
-template <class T>
-void print(const std::vector<T>& vect);
-void printStudent(const Student& student, const std::vector<double> grades, const std::vector<Subject*> &subjects);
 #endif
