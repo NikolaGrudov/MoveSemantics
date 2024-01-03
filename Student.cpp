@@ -118,6 +118,11 @@
         return m_grades;
     }
 
+    const std::vector<Subject*> Student::getSubjects() const
+    {
+        return m_subjects;
+    }
+
     template <class T>
     void print(const std::vector<T>& vect)
     {
@@ -125,11 +130,11 @@
             std::cout<<i<<" ";
     }
 
-    void printStudent(const Student& student, const std::vector<double>& grades, const std::vector<Subject*> &subjects)
+    void Student::printStudent(const Student& student)
     {
         std::cout<<"Name: "<<student.c_str()<<" Age: "<<student.getAge()<<" Grades: ";
-        print(grades);
+        print(student.getGrades());
         std::cout<<" Subjects: ";
-        print(subjects);
+        print(student.getSubjects());
         std::cout<<std::endl;
     }
