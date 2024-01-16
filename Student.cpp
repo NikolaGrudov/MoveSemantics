@@ -130,4 +130,6 @@
         std::cout<<"Name: "<<m_name<<" Age: "<<m_age<<" Grades: ";
         print(m_grades);
         std::cout<<" Subjects: ";
+        for(auto i : m_subjects)
+            std::cout<< i.getSubName()<<" ";
     }
