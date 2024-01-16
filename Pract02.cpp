@@ -4,21 +4,25 @@
 #include <vector>
 #include "Student.h"
 #include "Subject.h"
+#include "Subject.cpp"
+#include "Student.cpp"
 int main()
 {
 
-    Subject *maths = new Subject("Maths", "Gogev");
-    Subject *it = new Subject("IT", "Petrov");
-    Subject *sports= new Subject("Sports", "Balabanova");
-    std::vector <Subject*> subjects1;
+    Subject maths("Maths", "Gogev");
+    Subject it("IT", "Petrov");
+    Subject sports("Sports", "Balabanova");
 
+
+    std::vector <Subject> subjects1;
     subjects1.push_back(maths);
     subjects1.push_back(it);
     subjects1.push_back(sports);
+    
 
-
-    std::vector <Subject*> subjects2;
+    std::vector <Subject> subjects2;
     subjects2 .push_back(maths);
+
 
     std::vector<double> gr{5,6,5,6,5.5};
     std::vector<double> gr2{1,5,3,3};
@@ -28,8 +32,8 @@ int main()
     //move constructor
     Student s1("Ivan", 18, 5.5, gr, subjects1);
     Student s2(std::move(s1));
-    printStudent(s2, gr, subjects1);
 
+    s2.printStudent();
     //move assignment operator
     Student s3("Gogo", 14, 3, gr2, subjects2);
     Student s4("Nikola", 20, 2, gr3, subjects2);
@@ -46,9 +50,5 @@ int main()
     subjects1.clear();
     subjects2.clear();
     foundgrades.clear();
-
-    delete maths;
-    delete it;
-    delete sports;
     
 }
