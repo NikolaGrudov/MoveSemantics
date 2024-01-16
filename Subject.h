@@ -1,8 +1,7 @@
 #ifndef __Subject_h__
 #define __Subject_h__
-#include <vector>
 #include <iostream>
-
+#include <vector>
 class Subject
 {
 public:
@@ -11,7 +10,7 @@ public:
     size_t getTeaLen();
     const char* getSubName() const;
     const char* getTeaName() const;
-
+    void printSubject(const Subject& s) const;
 private:
     char* m_nameOfSubject;
     char* m_nameOfTeacher;
