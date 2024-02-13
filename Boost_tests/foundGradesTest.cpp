@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE(averageGrades)
 BOOST_AUTO_TEST_CASE(averageGrades)
 {
-    const std::vector<double> gr {5,5,4,4};
+    std::vector<double> gr {5,5,4,4};
     std::vector <Subject> subjects1;
     
     Subject maths("Maths", "Gogev");
