@@ -4,8 +4,7 @@
 #include <vector>
 #include "Student.h"
 #include "Subject.h"
-#include "Subject.cpp"
-#include "Student.cpp"
+
 int main()
 {
 
