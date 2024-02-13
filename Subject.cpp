@@ -29,8 +29,3 @@ const char* Subject::getTeaName() const
 {
     return m_nameOfTeacher;
 }
-
-void Subject::printSubject(const Subject& s) const
-{
-
-}

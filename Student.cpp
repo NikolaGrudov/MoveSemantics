@@ -6,7 +6,9 @@
 #include "Subject.h"
 
     //constructor
-    Student::Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades, const std::vector<Subject>& subjects): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA), m_subjects(subjects)    {
+    Student::Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades, const std::vector<Subject*>& subjects): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA), m_subjects(subjects)
+    {
+        
         m_name = new char[name_len+1];
         strcpy(m_name, name);
     }
@@ -20,7 +22,7 @@
     //move constructor
     Student::Student (Student&& other) noexcept : name_len(other.name_len), m_name(other.m_name), m_age(other.m_age), m_GPA(other.m_GPA), m_grades(other.m_grades), m_subjects(other.m_subjects)
     {
-        other.m_grades ={0};  
+        other.m_grades.clear();  
         other.name_len = 0;
         other.m_name = nullptr;
         other.m_age = 0;
@@ -46,6 +48,7 @@
             strcpy(m_name, other.m_name);
             m_age= other.m_age;
             m_GPA= other.m_GPA;
+            m_subjects=other.m_subjects;
 
         }
         return *this;   
@@ -62,8 +65,10 @@
             strcpy(m_name, other.m_name);
             m_age= other.m_age;
             m_GPA= other.m_GPA;
+            m_subjects= other.m_subjects;
 
-            other.m_grades = {0};
+            other.m_grades.clear();
+            other.m_subjects.clear();
             other.name_len = 0;
             other.m_name = nullptr;
             other.m_age = 0;
@@ -118,6 +123,11 @@
         return m_grades;
     }
 
+    const std::vector<Subject*>& Student::getSubjects() const
+    {
+        return m_subjects;
+    }
+
     template <class T>
     void print(const std::vector<T>& vect)
     {
@@ -130,6 +140,11 @@
         std::cout<<"Name: "<<m_name<<" Age: "<<m_age<<" Grades: ";
         print(m_grades);
         std::cout<<" Subjects: ";
+        int a = 0;
         for(auto i : m_subjects)
-            std::cout<< i.getSubName()<<" ";
+        {
+            std::cout<< m_subjects[a]->getSubName()<<" ";
+            a++;
+        }
+        std::cout<<std::endl;
     }
