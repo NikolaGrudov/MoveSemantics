@@ -13,7 +13,7 @@ BOOST_AUTO_TEST_CASE(foundGrades)
     
     Subject *maths = new Subject("Maths", "Gogev");
     subjects1.push_back(maths);
-    Student s1("Ivan", 18, 5.5, gr, subjects1);
+    Student s1("Ivan", 18, gr, subjects1);
 
     
     std::vector<double> fgrades{};
@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(averageGrades)
     
     Subject *maths = new Subject("Maths", "Gogev");
     subjects1.push_back(maths);
-    Student s1("Ivan", 18, 5.5, gr, subjects1);
+    Student s1("Ivan", 18, gr, subjects1);
     BOOST_CHECK(s1.averageGrades(gr) == 4.5);
     delete maths;
     subjects1.clear();
