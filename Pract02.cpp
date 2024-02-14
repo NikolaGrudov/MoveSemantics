@@ -24,19 +24,19 @@ int main()
 
 
     std::vector<double> gr{5,6,5,6,5.5};
-    std::vector<double> gr2{1,5,3,3};
-    std::vector<double> gr3{2,2,4,2};
+    std::vector<double> gr2{1,5,3,3,4};
+    std::vector<double> gr3{2,2,4,2,4};
     std::vector<double> foundgrades;
 
     //move constructor
-    Student s1("Ivan", 18, 5.5, gr, subjects1);
+    Student s1("Ivan", 18, gr, subjects1);
     Student s2(std::move(s1));
 
     s2.printStudent();
 
     //move assignment operator
-    Student s3("Gogo", 14, 3, gr2, subjects2);
-    Student s4("Nikola", 20, 2, gr3, subjects2);
+    Student s3("Gogo", 14, gr2, subjects2);
+    Student s4("Nikola", 20, gr3, subjects2);
     s3 = std::move(s4);
 
     s3.printStudent();
@@ -47,7 +47,7 @@ int main()
     s5.printStudent();
 
     //copy assignment constructor
-    Student s6("Pepi", 3, 2, gr, subjects1);
+    Student s6("Pepi", 3, gr, subjects1);
 
     s6 = s5;
     

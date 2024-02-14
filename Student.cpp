@@ -6,7 +6,7 @@
 #include "Subject.h"
 
     //constructor
-    Student::Student(const char* name, unsigned int age, double GPA, const std::vector<double>& grades, const std::vector<Subject*>& subjects): m_grades(grades), name_len(strlen(name)), m_age(age), m_GPA(GPA), m_subjects(subjects)
+    Student::Student(const char* name, unsigned int age, const std::vector<double>& grades, const std::vector<Subject*>& subjects): m_grades(grades), name_len(strlen(name)), m_age(age), m_subjects(subjects)
     {
         
         m_name = new char[name_len+1];
@@ -14,19 +14,18 @@
     }
     
     //copy constructor
-    Student::Student(const Student& other): m_grades(other.m_grades), name_len(other.name_len), m_age(other.m_age), m_GPA(other.m_GPA), m_subjects(other.m_subjects)
+    Student::Student(const Student& other): m_grades(other.m_grades), name_len(other.name_len), m_age(other.m_age), m_subjects(other.m_subjects)
     {   
         m_name = new char[name_len+1];
         strcpy(m_name, other.m_name);
     }
     //move constructor
-    Student::Student (Student&& other) noexcept : name_len(other.name_len), m_name(other.m_name), m_age(other.m_age), m_GPA(other.m_GPA), m_grades(other.m_grades), m_subjects(other.m_subjects)
+    Student::Student (Student&& other) noexcept : name_len(other.name_len), m_name(other.m_name), m_age(other.m_age), m_grades(other.m_grades), m_subjects(other.m_subjects)
     {
         other.m_grades.clear();  
         other.name_len = 0;
         other.m_name = nullptr;
         other.m_age = 0;
-        other.m_GPA = 0;
         other.m_subjects.clear();
     }
     //destructor
@@ -47,7 +46,6 @@
             m_name = new char[name_len+1];
             strcpy(m_name, other.m_name);
             m_age= other.m_age;
-            m_GPA= other.m_GPA;
             m_subjects=other.m_subjects;
 
         }
@@ -64,7 +62,6 @@
             m_name = new char[name_len+1];
             strcpy(m_name, other.m_name);
             m_age= other.m_age;
-            m_GPA= other.m_GPA;
             m_subjects= other.m_subjects;
 
             other.m_grades.clear();
@@ -72,7 +69,6 @@
             other.name_len = 0;
             other.m_name = nullptr;
             other.m_age = 0;
-            other.m_GPA = 0;
         }
         return *this; 
     }
@@ -92,7 +88,7 @@
         
     }
 
-    double Student::averageGrades(const std::vector<double>& grades)
+    double Student::averageGrades(const std::vector<double>& grades) const
     {
         double sumOfGrades = 0;
         for(auto i : grades)
@@ -113,11 +109,6 @@
     {
         return m_age;
     }
-    const double Student::getGPA() const
-    {
-        return m_GPA;
-    }
-
     const std::vector<double>& Student::getGrades() const
     {
         return m_grades;
@@ -139,6 +130,8 @@
     {
         std::cout<<"Name: "<<m_name<<" Age: "<<m_age<<" Grades: ";
         print(m_grades);
+        std::cout<<" GPA: ";
+        std::cout<<averageGrades(m_grades);
         std::cout<<" Subjects: ";
         int a = 0;
         for(auto i : m_subjects)
